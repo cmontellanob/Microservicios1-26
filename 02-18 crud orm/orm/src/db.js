@@ -1,4 +1,3 @@
-require("reflect-metadata");
 const { DataSource } = require("typeorm");
 
 const AppDataSource = new DataSource({
@@ -10,7 +9,7 @@ const AppDataSource = new DataSource({
   database: "bd_ventas",
   synchronize: true, // elimina y vuelve a crear la base de datos cada vez que se inicia la aplicación
   logging: false,
-  entities: ["src/entity/*.js"],
+  entities: ["./entity/*.js"], // Adjusted path to potentially be correct from root execution, assuming user runs from root. Original was "./entity/*.js" which is dubious from root.
 });
 
 module.exports = AppDataSource;
