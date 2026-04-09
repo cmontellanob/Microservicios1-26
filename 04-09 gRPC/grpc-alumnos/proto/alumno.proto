@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package alumnoPackage;
+
+service AlumnoService {
+  rpc ObtenerAlumno (AlumnoRequest) returns (AlumnoResponse);
+  rpc ListarAlumnos (ListarRequest) returns (stream AlumnoResponse);
+}
+
+message AlumnoRequest {
+  int32 id = 1;
+}
+
+message ListarRequest {}
+
+message AlumnoResponse {
+  int32 id = 1;
+  string nombre = 2;
+  int32 edad = 3;
+  string carrera = 4;
+}
